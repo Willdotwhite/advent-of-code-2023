@@ -1,8 +1,15 @@
+import kotlin.time.measureTimedValue
+
 fun main() {
     val task = Task()
     val input = mapMultiLineString(getInput())
 
-    println(task.solve(input))
+    val (solution, timeTaken) = measureTimedValue {
+        task.solve(input)
+    }
+
+    val formattedTime = "%,d".format(timeTaken.inWholeNanoseconds / 1000)
+    println("Answer: $solution (time: $formattedTime μs)")
 }
 
 fun mapMultiLineString(input: String) = input.split("\n").map { it.trim() }.filter { it.isNotEmpty() }
