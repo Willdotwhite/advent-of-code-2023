@@ -1,3 +1,5 @@
+package day1
+
 class Task {
 
     fun solve(input: List<String>): Int {

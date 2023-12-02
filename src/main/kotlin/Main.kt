@@ -1,3 +1,4 @@
+import day1.Task
 import kotlin.time.measureTimedValue
 
 fun main() {

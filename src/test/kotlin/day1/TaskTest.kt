@@ -1,3 +1,6 @@
+package day1
+
+import mapMultiLineString
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -7,19 +10,22 @@ internal class TaskTest {
 
     @Test
     fun testExampleInput() {
-        val input = mapMultiLineString("""
+        val input = mapMultiLineString(
+            """
             1abc2
             pqr3stu8vwx
             a1b2c3d4e5f
             treb7uchet
-        """)
+        """
+        )
 
         assertEquals(142, testTask.solve(input))
     }
 
     @Test
     fun testExampleInputWithDigitsAsWords() {
-        val input = mapMultiLineString("""
+        val input = mapMultiLineString(
+            """
             two1nine
             eightwothree
             abcone2threexyz
@@ -27,7 +33,8 @@ internal class TaskTest {
             4nineeightseven2
             zoneight234
             7pqrstsixteen
-        """.trimIndent())
+        """.trimIndent()
+        )
 
         assertEquals(281, testTask.solve(input))
     }
