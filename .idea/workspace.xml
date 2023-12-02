@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40b2399a-a6f2-4223-ba15-a3f1fa77e615" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/day2/Task.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/day2/TaskTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +34,14 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin Class" />
+        <option value="Kotlin Data Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -59,6 +70,11 @@
     "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="day1" />
+    </key>
+  </component>
   <component name="RunManager" selected="Kotlin.MainKt">
     <configuration name="TaskTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -84,7 +100,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TaskTest.testExampleInputWithDigitsAsWords" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TaskTest.testExampleInput" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -97,7 +113,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;TaskTest.testExampleInputWithDigitsAsWords&quot;" />
+            <option value="&quot;day2.TaskTest.testExampleInput&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -162,19 +178,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.TaskTest.testExampleInput" />
       <item itemvalue="Gradle.TaskTest.testKnownEdgeCases" />
       <item itemvalue="Gradle.advent-of-code-2023 [build]" />
       <item itemvalue="Gradle.TaskTest" />
-      <item itemvalue="Gradle.TaskTest.testExampleInputWithDigitsAsWords" />
       <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.TaskTest.testExampleInput" />
         <item itemvalue="Gradle.TaskTest.testKnownEdgeCases" />
         <item itemvalue="Gradle.advent-of-code-2023 [build]" />
         <item itemvalue="Gradle.TaskTest" />
-        <item itemvalue="Gradle.TaskTest.testExampleInputWithDigitsAsWords" />
       </list>
     </recent_temporary>
   </component>
@@ -193,10 +209,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <condition expression="line == &quot;tbbffonefhrvrvbzstkn53lbgvmgvxk5&quot;" language="kotlin" />
-          <url>file://$PROJECT_DIR$/src/main/kotlin/Task.kt</url>
-          <line>29</line>
-          <option name="timeStamp" value="39" />
+          <condition expression="id == &quot;&quot;" language="kotlin" />
+          <url>file://$PROJECT_DIR$/src/main/kotlin/day2/Task.kt</url>
+          <line>8</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
