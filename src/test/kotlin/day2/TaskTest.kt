@@ -18,7 +18,6 @@ internal class TaskTest {
             Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
         """.trimIndent())
 
-        val totalCubesInBag: BagSet = Triple(12, 13, 14)
-        assertEquals(8, testTask.solve(input, totalCubesInBag))
+        assertEquals(2286, testTask.solve(input))
     }
 }

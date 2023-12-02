@@ -1,13 +1,11 @@
-import day2.BagSet
 import kotlin.time.measureTimedValue
 
 fun main() {
     val task = day2.Task()
     val input = mapMultiLineString(getInput())
-    val totalCubesInBag: BagSet = Triple(12, 13, 14)
 
     val (solution, timeTaken) = measureTimedValue {
-        task.solve(input, totalCubesInBag)
+        task.solve(input)
     }
 
     val formattedTime = "%,d".format(timeTaken.inWholeNanoseconds / 1000)

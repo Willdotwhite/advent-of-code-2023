@@ -2,17 +2,23 @@ package day2
 
 class Task {
 
-    fun solve(input: List<String>, totalCubesInBagSet: BagSet): Int {
+    fun solve(input: List<String>): Int {
         return input
             .map {
                 val (id, draws) = Regex("^Game (\\d+): (.*)$").find(it)!!.destructured
                 Pair(id, parseDrawsToBagSet(draws))
             }
-            .filter {
-                // None of the games violate the rules
-                it.second.all { bagSet -> bagSet.isPossible(totalCubesInBagSet) }
+            .map {
+                // Create one BagSet with the highest R/G/B numbers seen
+                (_, sets) -> BagSet(
+                    sets.maxBy { it.r }.r,
+                    sets.maxBy { it.g }.g,
+                    sets.maxBy { it.b }.b,
+                )
             }
-            .sumOf { it.first.toInt() }
+            .fold(0) {
+                acc: Int, bagSet: BagSet -> acc + (bagSet.r * bagSet.g * bagSet.b)
+            }
     }
 
     private fun parseDrawsToBagSet(drawString: String): List<BagSet> {
@@ -31,7 +37,3 @@ class Task {
     }
 
 }
-
-typealias BagSet = Triple<Int, Int, Int>
-fun BagSet.isPossible(total: BagSet): Boolean =
-    this.first <= total.first && this.second <= total.second && this.third <= total.third
