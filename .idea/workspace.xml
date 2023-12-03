@@ -190,10 +190,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.TaskTest.testExampleInput (1)" />
         <item itemvalue="Gradle.TaskTest" />
         <item itemvalue="Gradle.TaskTest.testRunOnSymbols" />
         <item itemvalue="Gradle.TaskTest.testLiteralEdgeCase" />
-        <item itemvalue="Gradle.TaskTest.testExampleInput (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -207,16 +207,5 @@
       <updated>1701451777045</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/src/main/kotlin/day3/Task.kt</url>
-          <line>45</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

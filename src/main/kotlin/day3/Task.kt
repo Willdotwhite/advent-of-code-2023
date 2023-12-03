@@ -28,8 +28,10 @@ class Task: ITask {
 
                 // If we have a NumberSpan in progress, and we've hit a non-digit char,
                 // track that and then handle the new char
-                allNumberSpans.add(currentNumberSpan)
-                currentNumberSpan = mutableListOf()
+                if (currentNumberSpan.isNotEmpty()) {
+                    allNumberSpans.add(currentNumberSpan)
+                    currentNumberSpan = mutableListOf()
+                }
 
                 if (cell != '.') {
                     allEngineSymbols.add(Vector2(x, y))
@@ -43,22 +45,35 @@ class Task: ITask {
             }
         }
 
-        return allNumberSpans
-            .filter {  it.isAdjacentToAnySymbol(allEngineSymbols) }
-            .map { it.fold("") { acc, (value, _) -> acc + value } }
-            .sumOf { it.toInt() }
+        val gears = allEngineSymbols
+            .asSequence()
+            .map { it.getAdjacentNumberSpans(allNumberSpans) }
+            .filter { it.isGear() } // TODO What should my naming convention be here?
+            .map { gearSpans -> gearSpans.map {span -> span.toInt() }.reduce(Int::times) }
+            .toList()
+
+        return gears.sum()
     }
 }
 
 data class Vector2(val x: Int, val y: Int)
 
 typealias EngineSymbol = Vector2
-typealias NumberSpan = MutableList<Pair<Int, Vector2>>
+typealias NumberSpan = MutableList<NumberSpanChar>
+typealias NumberSpanChar = Pair<Int, Vector2>
 
-fun NumberSpan.isAdjacentToAnySymbol(symbols: List<EngineSymbol>): Boolean {
-    return symbols.any { symbol -> this.isAdjacentToSymbol(symbol) }
+private fun List<NumberSpan>.isGear(): Boolean {
+    return this.size == 2
 }
-fun NumberSpan.isAdjacentToSymbol(symbol: EngineSymbol): Boolean {
+fun NumberSpan.toInt(): Int {
+    return this.fold("") { acc, (value, _) -> acc + value }.toInt()
+}
+
+private fun EngineSymbol.getAdjacentNumberSpans(numberSpans: List<NumberSpan>): List<NumberSpan> {
+    return numberSpans.filter { numberSpan -> this.isAdjacentToNumberSpan(numberSpan) }.toList()
+}
+
+private fun EngineSymbol.isAdjacentToNumberSpan(numberSpan: NumberSpan): Boolean {
     // There may be a way to optimise this, but we'll brute force for now
-    return this.any { (_, coords) -> abs(coords.x - symbol.x) <= 1 && abs(coords.y - symbol.y) <= 1 }
+    return numberSpan.any { (_, coords) -> abs(coords.x - this.x) <= 1 && abs(coords.y - this.y) <= 1 }
 }
