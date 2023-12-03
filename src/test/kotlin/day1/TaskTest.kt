@@ -1,15 +1,16 @@
 package day1
 
+import ITaskTest
 import mapMultiLineString
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class TaskTest {
+internal class TaskTest: ITaskTest {
 
     private val testTask: Task = Task()
 
     @Test
-    fun testExampleInput() {
+    override fun testExampleInput() {
         val input = mapMultiLineString(
             """
             1abc2

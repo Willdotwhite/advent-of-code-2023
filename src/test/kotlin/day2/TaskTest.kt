@@ -1,15 +1,16 @@
 package day2
 
+import ITaskTest
 import mapMultiLineString
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class TaskTest {
+internal class TaskTest: ITaskTest {
 
     private val testTask: Task = Task()
 
     @Test
-    fun testExampleInput() {
+    override fun testExampleInput() {
         val input = mapMultiLineString("""
             Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
             Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue

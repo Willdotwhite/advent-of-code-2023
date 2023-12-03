@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40b2399a-a6f2-4223-ba15-a3f1fa77e615" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/day2/BagSet.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/ITask.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/day3/Task.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/ITaskTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/day3/TaskTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/day1/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/day1/Task.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/day2/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/day2/Task.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/day1/TaskTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/day1/TaskTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/kotlin/day2/TaskTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/day2/TaskTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,8 +43,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
+        <option value="Interface" />
+        <option value="Kotlin Interface" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>

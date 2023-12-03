@@ -1,8 +1,10 @@
 package day1
 
-class Task {
+import ITask
 
-    fun solve(input: List<String>): Int {
+class Task: ITask{
+
+    override fun solve(input: List<String>): Int {
         return input
             .map { getDigitPair(it) }
             .sumOf { "${it.first}${it.second}".toInt() }

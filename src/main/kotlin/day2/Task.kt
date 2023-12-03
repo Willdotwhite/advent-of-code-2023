@@ -1,8 +1,10 @@
 package day2
 
-class Task {
+import ITask
 
-    fun solve(input: List<String>): Int {
+class Task: ITask {
+
+    override fun solve(input: List<String>): Int {
         return input
             .map {
                 val (id, draws) = Regex("^Game (\\d+): (.*)$").find(it)!!.destructured
