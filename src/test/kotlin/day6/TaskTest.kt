@@ -16,6 +16,6 @@ internal class TaskTest: ITaskTest {
             Distance:  9  40  200
         """.trimIndent())
 
-        assertEquals(288, task.solve(input))
+        assertEquals(71503, task.solve(input))
     }
 }
