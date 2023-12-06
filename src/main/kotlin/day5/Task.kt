@@ -1,5 +1,7 @@
 package day5
 
+import kotlin.streams.asSequence
+
 
 class Task {
     fun solve(input: List<String>): Long {
@@ -16,19 +18,21 @@ class Task {
 
         val graph = buildGraph(almanac.drop(1))
 
-        var lowestSeedLocationPair = Pair<Long, Long>(-1L, Long.MAX_VALUE)
+        val lowestSeeds = mutableMapOf<LongRange, Long>()
+        seedRanges.parallelStream()
+            .forEach { range ->
+                lowestSeeds[range] = Long.MAX_VALUE
 
-        for (range in seedRanges) {
-            for (seed in range) {
-            val locationValue = graph.traverseFromSeedToLocation(seed)
+                range.asSequence().forEach {
+                    val locationValue = graph.traverseFromSeedToLocation(it)
 
-                if (locationValue < lowestSeedLocationPair.second) {
-                    lowestSeedLocationPair = Pair(seed, locationValue)
+                    if (locationValue < lowestSeeds[range]!!) {
+                        lowestSeeds[range] = locationValue
+                    }
                 }
             }
-        }
 
-        return lowestSeedLocationPair.second
+        return lowestSeeds.values.min()
     }
 
     private fun buildGraph(mappings: List<String>): AdjacencyList {
@@ -76,14 +80,8 @@ data class Range(
     val destinationStart: Long,
     val rangeLength: Long
 ) {
-    fun contains(stepValue: Long): Boolean {
-        return sourceStart <= stepValue && stepValue <= sourceStart + rangeLength
-    }
-
-    fun convert(stepValue: Long): Long {
-        val offset = stepValue - sourceStart
-        return destinationStart + offset
-    }
+    fun contains(stepValue: Long): Boolean = sourceStart <= stepValue && stepValue < sourceStart + rangeLength
+    fun convert(stepValue: Long): Long = destinationStart + (stepValue - sourceStart)
 }
 
 data class Edge(
