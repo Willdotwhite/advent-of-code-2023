@@ -1,23 +1,53 @@
 package day4
 
 import ITask
-import kotlin.math.pow
 
 class Task: ITask {
+    val cardLookUp: MutableMap<Int, Card> = mutableMapOf()
+
     override fun solve(input: List<String>): Int {
-        return input
-            .map {
-                val (winningNumbers, scoringNumbers) = """^Card\s+\d+: ([\d| ]+) \| ([\d| ]+)$""".toRegex()
-                    .find(it)!!.destructured
-                Pair(winningNumbers, scoringNumbers)
+
+        val cards = input
+            .map { string ->
+                val (id, winningNumbers, scoringNumbers) = """^Card\s+(\d+): ([\d| ]+) \| ([\d| ]+)$""".toRegex()
+                    .find(string)!!.destructured
+
+                Card(
+                    id.toInt(),
+                    winningNumbers.split(" ").filter { it.isNotEmpty() }.map { it.toInt() }.toList(),
+                    scoringNumbers.split(" ").filter { it.isNotEmpty() }.map { it.toInt() }.toList()
+                )
             }
-            .map { (winningNumbers, scoringNumbers) ->
-                scoringNumbers
-                    .split(" ")
-                    .filter { it.isNotEmpty() }
-                    .filter { winningNumbers.split(" ").filter { it.isNotEmpty() }.contains(it) }
-                    .size
+            .also {
+                it.map { card -> cardLookUp[card.id] = card }
             }
-            .sumOf { if (it > 0) 2.0.pow(it - 1).toInt() else 0 }
+
+        var cardsToSettle = mutableListOf<Card>()
+        cardsToSettle.addAll(cards)
+
+        var totalCards = 0
+
+        var anyCardsWereGenerated = true
+        while (anyCardsWereGenerated) {
+            val newCards = mutableListOf<Card>()
+
+            for (card in cardsToSettle) {
+                totalCards += 1
+                newCards.addAll(card.resolve(cardLookUp))
+            }
+
+            anyCardsWereGenerated = newCards.size > 0
+            cardsToSettle = newCards
+        }
+
+
+        return totalCards
+    }
+}
+
+data class Card(val id: Int, val winningNumbers: List<Int>, val scoringNumbers: List<Int>) {
+    fun resolve(cardLookUp: Map<Int, Card>): List<Card> {
+        val numberOfWins = scoringNumbers.filter { winningNumbers.contains(it) }.size
+        return (id + 1..id + numberOfWins).map { cardLookUp[it]!! }.toList()
     }
 }

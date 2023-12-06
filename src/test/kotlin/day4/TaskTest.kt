@@ -19,6 +19,6 @@ class TaskTest: ITaskTest {
             Card 6: 31 18 13 56 72 | 74 77 10 23 35 67 36 11
         """.trimIndent())
 
-        assertEquals(13, task.solve(input))
+        assertEquals(30, task.solve(input))
     }
 }
