@@ -1,5 +1,6 @@
 import kotlin.time.measureTimedValue
 
+
 fun main() {
     val task = day5.Task()
     val input = listOf(getInput())

@@ -1,28 +1,34 @@
 package day5
 
-import ITask
 
-class Task: ITask {
-    override fun solve(input: List<String>): Int {
+class Task {
+    fun solve(input: List<String>): Long {
         // We've passed in a list of size==1 for the sake of not changing the ITask signature
         val almanac = input[0].split("\n\n")
 
         // Oh my lord rewrite this
-        val seeds: List<Long> = Regex("""^seeds: ([\d|\s]+)""").find(almanac[0])!!.groups[1]!!.value.split(" ").map { it.toLong() }
+        val seedRanges: List<LongRange> = Regex("""^seeds: ([\d|\s]+)""")
+            .find(almanac[0])!!.groups[1]!!.value
+            .split(" ")
+            .chunked(2)
+            .map { it[0].toLong()..<it[0].toLong() + it[1].toLong() }
+            .toList()
 
         val graph = buildGraph(almanac.drop(1))
 
         var lowestSeedLocationPair = Pair<Long, Long>(-1L, Long.MAX_VALUE)
 
-        for (seed in seeds) {
+        for (range in seedRanges) {
+            for (seed in range) {
             val locationValue = graph.traverseFromSeedToLocation(seed)
 
-            if (locationValue < lowestSeedLocationPair.second) {
-                lowestSeedLocationPair = Pair(seed, locationValue)
+                if (locationValue < lowestSeedLocationPair.second) {
+                    lowestSeedLocationPair = Pair(seed, locationValue)
+                }
             }
         }
 
-        return lowestSeedLocationPair.second.toInt()
+        return lowestSeedLocationPair.second
     }
 
     private fun buildGraph(mappings: List<String>): AdjacencyList {
@@ -87,7 +93,6 @@ data class Edge(
 )
 
 data class Vertex(
-    val id: Long,
     val sourceCategory: String, // e.g 'seed'
     val destinationCategory: String, // e.g 'soil'
 )
@@ -99,7 +104,7 @@ class AdjacencyList {
     private val vertexLookUp = mutableMapOf<String, Vertex>()
 
     fun createVertex(sourceCategory: String, destinationCategory: String): Vertex {
-        val vertex = Vertex(adjacencyMap.count().toLong(), sourceCategory, destinationCategory)
+        val vertex = Vertex(sourceCategory, destinationCategory)
         adjacencyMap[vertex] = mutableListOf()
         vertexLookUp[sourceCategory] = vertex
         return vertex

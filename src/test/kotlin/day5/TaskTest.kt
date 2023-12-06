@@ -46,6 +46,6 @@ internal class TaskTest: ITaskTest {
             56 93 4
         """.trimIndent()
 
-        assertEquals(35, task.solve(listOf(input)))
+        assertEquals(46, task.solve(listOf(input)))
     }
 }
