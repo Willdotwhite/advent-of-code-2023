@@ -25,7 +25,30 @@ data class Hand(
         .map { it.key to it.value.size }
         .toMap()
 
-    private val handType = when {
+    private val handType = determineHandTypeWithJokers()
+
+    private fun determineHandTypeWithJokers(): HandType {
+        if (cardMap.containsKey(Card.Joker)) {
+            val numberOfJokers = cardMap[Card.Joker]!!
+
+            // Create a copy of the hand without Jokers
+            val wildCardedHand: MutableMap<Card, Int> = cardMap.filterKeys { it != Card.Joker }.toMutableMap()
+
+            // Replace all jokers with the highest value card;
+            // there's no combination where two jokers become two different cards to form a winning hand
+            val highestValueCard = if (wildCardedHand.keys.size > 0)
+                // Get most numerous card, then highest value for multiple matches
+                wildCardedHand.entries.sortedWith(compareBy( { it.value }, { -it.key.score() })).reversed()[0].key
+                else Card.Ace
+
+            wildCardedHand[highestValueCard] = wildCardedHand[highestValueCard]?.plus(numberOfJokers) ?: numberOfJokers
+            return determineHandType(wildCardedHand)
+        }
+
+        return determineHandType(cardMap)
+    }
+
+    private fun determineHandType(cardMap: Map<Card, Int>): HandType = when {
         (cardMap.containsValue(5)) -> HandType.FiveOfAKind
         (cardMap.containsValue(4)) -> HandType.FourOfAKind
         (cardMap.containsValue(3) && cardMap.containsValue(2)) -> HandType.FullHouse
@@ -47,7 +70,7 @@ enum class Card(val card: String) {
     Ace("A"),
     King("K"),
     Queen("Q"),
-    Jack("J"),
+    Joker("J"),
     Ten("T"),
     Nine("9"),
     Eight("8"),
@@ -56,14 +79,13 @@ enum class Card(val card: String) {
     Five("5"),
     Four("4"),
     Three("3"),
-    Two("2"),
-    One("1");
+    Two("2");
 
     fun score(): Int = when(card) {
         "A" -> 14
         "K" -> 13
         "Q" -> 12
-        "J" -> 11
+        "J" -> 1
         "T" -> 10
         else -> card.toInt()
     }

@@ -19,6 +19,6 @@ internal class TaskTest: ITaskTest {
             QQQJA 483
         """.trimIndent())
 
-        assertEquals(6440, task.solve(input))
+        assertEquals(5905, task.solve(input))
     }
 }
