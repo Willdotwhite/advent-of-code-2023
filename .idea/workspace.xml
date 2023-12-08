@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40b2399a-a6f2-4223-ba15-a3f1fa77e615" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/kotlin/day8/Task.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/kotlin/day8/TaskTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/day7/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/day7/Task.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/kotlin/day7/TaskTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/kotlin/day7/TaskTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +83,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="day8" />
       <recent name="day6" />
       <recent name="day1" />
     </key>
@@ -111,7 +113,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="TaskTest.testExampleInput (3)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TaskTest.testExampleInput (2)" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -124,7 +126,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;day6.TaskTest.testExampleInput&quot;" />
+            <option value="&quot;day8.TaskTest.testExampleInput&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -189,19 +191,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Gradle.TaskTest.testExampleInput (2)" />
       <item itemvalue="Gradle.TaskTest.testExampleInput (1)" />
       <item itemvalue="Gradle.advent-of-code-2023 [build]" />
-      <item itemvalue="Gradle.TaskTest.testExampleInput (3)" />
       <item itemvalue="Gradle.TaskTest.testExampleInput" />
       <item itemvalue="Kotlin.MainKt" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Kotlin.MainKt" />
+        <item itemvalue="Gradle.TaskTest.testExampleInput (2)" />
         <item itemvalue="Gradle.TaskTest.testExampleInput (1)" />
         <item itemvalue="Gradle.advent-of-code-2023 [build]" />
         <item itemvalue="Gradle.TaskTest.testExampleInput" />
-        <item itemvalue="Gradle.TaskTest.testExampleInput (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -237,6 +239,11 @@
           <url>file://$PROJECT_DIR$/src/main/kotlin/day5/Task.kt</url>
           <line>21</line>
           <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/day8/Task.kt</url>
+          <line>22</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
