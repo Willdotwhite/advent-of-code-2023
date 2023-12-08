@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40b2399a-a6f2-4223-ba15-a3f1fa77e615" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/day8/Task.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/kotlin/day8/TaskTest.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/day8/Task.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/day8/Task.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,9 +239,10 @@
           <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
+          <condition expression="numberOfStepsInPath &lt; 0" language="kotlin" />
           <url>file://$PROJECT_DIR$/src/main/kotlin/day8/Task.kt</url>
-          <line>22</line>
-          <option name="timeStamp" value="76" />
+          <line>38</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
